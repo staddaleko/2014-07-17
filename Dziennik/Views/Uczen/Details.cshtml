@@ -48,7 +48,7 @@
     <div id="Oceny"></div>
     <p>
         @Html.ActionLink("Edit", "Edit", new { id_u=Model.Id_u }) |
-        @Html.ActionLink("Back to List", "Index")
+        <a href=@Url.Content("/home/index")>Back to List</a>
     </p>
     <script>
         $(document).ready(function () {

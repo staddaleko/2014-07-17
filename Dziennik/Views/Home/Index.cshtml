@@ -13,19 +13,28 @@
 <body>
     <div>
         <div id="menu">
-            <a class="active" id="o1" href="=" ">Uczniowie</a> | <a class="" id="o2" href="">Przedmioty</a> | <a class="" id="o3" href="">Oceny</a>
+            <span onClick="javascript: OnClickUczniowie()" class="" id="o1">Uczniowie</span> |
+            <span onclick="javascript: OnClickPrzedmioty()" class="" id="o2">Przedmioty</span> | 
+            <span onclick="javascript: OnClickOceny()" class="" id="o3">Oceny</span>
         </div>
         <div id="content">
-            <script>
-                $(document).ready(function () {
-                    document.getElementById("o1").onclick(function () {
-                        $('#content').fadeOut;
-                        $('#content').load('/Uczen/Index');
-                        $('#content').fadeIn;
-                    })
-                });
-            </script>
+            
         </div>
     </div>
+    <script>
+    $(document).ready(function () {
+        $("#content").load('/Uczen/index');
+    });
+    function OnClickUczniowie() {
+        $('#content').load('/Uczen/Index');
+    }
+    function OnClickPrzedmioty() {
+        $('#content').load('/Przedmiot/Index');
+    }
+    function OnClickOceny() {
+        $('#content').load('/home/ocena_uczen_przedmiot');
+    }
+    </script>
+
 </body>
 </html>
