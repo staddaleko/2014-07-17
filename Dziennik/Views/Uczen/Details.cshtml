@@ -1,0 +1,59 @@
+﻿@model AppDziennik.Models.Uczen
+
+@{
+    Layout = null;
+    ViewBag.id_u = Model.Id_u;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+    <script src="~/Scripts/jquery-2.1.1.js"></script>
+</head>
+<body>
+    <fieldset>
+        <legend>Uczen</legend>
+    
+        <div class="display-label">
+             @Html.DisplayNameFor(model => model.Imie)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Imie)
+        </div>
+    
+        <div class="display-label">
+             @Html.DisplayNameFor(model => model.Nazwisko)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Nazwisko)
+        </div>
+    
+        <div class="display-label">
+             @Html.DisplayNameFor(model => model.Wiek)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Wiek)
+        </div>
+    
+        <div class="display-label">
+             @Html.DisplayNameFor(model => model.Klasa)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Klasa)
+        </div>
+    </fieldset>
+    <div id="Oceny"></div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id_u=Model.Id_u }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+    <script>
+        $(document).ready(function () {
+            $("#Oceny").load('/Uczen/PartialDetails?id_u=' + @ViewBag.id_u);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <script src="~/Scripts/jquery-2.1.1.js"></script>
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        <div id="menu">
+            <a class="active" id="o1" href="=" ">Uczniowie</a> | <a class="" id="o2" href="">Przedmioty</a> | <a class="" id="o3" href="">Oceny</a>
+        </div>
+        <div id="content">
+            <script>
+                $(document).ready(function () {
+                    document.getElementById("o1").onclick(function () {
+                        $('#content').fadeOut;
+                        $('#content').load('/Uczen/Index');
+                        $('#content').fadeIn;
+                    })
+                });
+            </script>
+        </div>
+    </div>
+</body>
+</html>

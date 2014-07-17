@@ -1,0 +1,84 @@
+﻿@model AppDziennik.Models.Uczen
+
+@{
+    Layout = null;
+    var age = new List<int>(new int[] { 20,21,22,23,24,25,26,27,28,29 });
+    
+    var klasy = new List<SelectListItem>{
+        new SelectListItem{ Value = "1", Text = "Klasa 1"},
+        new SelectListItem{ Value = "2", Text = "Klasa 2"},
+        new SelectListItem{ Value = "3", Text = "Klasa 3"}
+        };
+    
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Create</title>
+</head>
+<body>
+    <script src="~/Scripts/jquery-1.8.2.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+    
+        <fieldset>
+            <legend>Uczen</legend>
+    
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Id_u)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Id_u)
+                @Html.ValidationMessageFor(model => model.Id_u)
+            </div>
+    
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Imie)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Imie)
+                @Html.ValidationMessageFor(model => model.Imie)
+            </div>
+    
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Nazwisko)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Nazwisko)
+                @Html.ValidationMessageFor(model => model.Nazwisko)
+            </div>
+    
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Wiek)
+            </div>
+            <div class="editor-field">
+                @Html.DropDownListFor(model => model.Wiek, @age)
+                @Html.ValidationMessageFor(model => model.Wiek)
+            </div>
+    
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Klasa)
+            </div>
+            <div class="editor-field">
+                @Html.DropDownListFor(model => model.Klasa, klasy, new { size = 1})
+                @Html.ValidationMessageFor(model => model.Klasa)
+            </div>
+    
+            <p>
+                <input type="submit" value="Create" />
+            </p>
+        </fieldset>
+    }
+    
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+</body>
+</html>
