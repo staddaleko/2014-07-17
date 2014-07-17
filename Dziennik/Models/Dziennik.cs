@@ -51,9 +51,13 @@ namespace AppDziennik.Models
         public class Ocena
         {
             [Key]
+            [Required]
             public int Id_o { set; get; }
+            [Required]
             public int Id_u { set; get; }
+            [Required]
             public int Id_p { set; get; }
+            [Required]
             public int Wartosc { set; get; }
             public Uczen U { set; get;  }
             public Przedmiot P { set; get; }
