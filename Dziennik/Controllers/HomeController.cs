@@ -18,12 +18,12 @@ namespace Dziennik.Controllers
 
         public ActionResult Ocena_Uczen_Przedmiot()
         {
-            return View();
+            return View("Index");
         }
         [HttpPost]
         public ActionResult Ocena_Uczen_Przedmiot(int id_u, int id_p, int wartosc)
         {
-            return View();
+            return View("Index");
         }
     }
 }
