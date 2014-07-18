@@ -91,8 +91,11 @@ namespace AppDziennik.Models
     {
         private readonly string _regex;
 
-        public MyRegex()
-            : base("{0} jest niezgodna z wymaganiami!") { }
+        public MyRegex(string my_regex)
+            : base("{0} jest niezgodna z wymaganiami!")
+        {
+            _regex = my_regex;
+        }
 
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
@@ -125,6 +128,7 @@ namespace AppDziennik.Models
         [Required(ErrorMessage = "No podziel się nazwiskiem...")]
         [MinLength(3, ErrorMessage = "Nazwisko ma co najmniej 3 znaki")]
         [MaxLength(50, ErrorMessage = "Masz najdłuższe nazwisko na świecie? Hehe. Skróć je. :D")]
+        [MyRegex("^[A-Z][a-z]|[A-Z]+")]
         public string Nazwisko { set; get; }
         [Required]
         [Range(20, 50, ErrorMessage = "Wiek od 20 do 50 lat")]
