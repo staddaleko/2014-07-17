@@ -17,7 +17,7 @@
         <legend>Uczen</legend>
     
         <div class="display-label">
-             @Html.DisplayNameFor(model => model.Id_u)
+             @*@Html.DisplayNameFor(model => model.Id_u)*@
         </div>
         <div class="display-field">
             @Html.DisplayFor(model => model.Id_u)
@@ -56,7 +56,8 @@
         <p>
             @Html.HiddenFor(model => model.Id_u)
             <input type="submit" value="Delete" /> |
-            @Html.ActionLink("Back to List", "Index")
+            <a href=@Url.Content("/home/index")>Back to List</a>
+
         </p>
     }
 

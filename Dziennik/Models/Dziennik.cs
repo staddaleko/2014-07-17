@@ -52,6 +52,7 @@ namespace AppDziennik.Models
         {
             [Key]
             [Required]
+            
             public int Id_o { set; get; }
             [Required]
             public int Id_u { set; get; }

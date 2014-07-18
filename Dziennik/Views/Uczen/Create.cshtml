@@ -43,7 +43,8 @@
             <legend>Uczen</legend>
     
             <div class="editor-label">
-                @Html.LabelFor(model => model.Id_u)
+                @*@Html.LabelFor(model => model.Id_u)*@
+                Numer Ucznia
             </div>
             <div class="editor-field">
                 @Html.EditorFor(model => model.Id_u)
@@ -51,7 +52,8 @@
             </div>
     
             <div class="editor-label">
-                @Html.LabelFor(model => model.Imie)
+                @*@Html.LabelFor(model => model.Imie)*@
+                Imię
             </div>
             <div class="editor-field">
                 @Html.EditorFor(model => model.Imie)
@@ -89,7 +91,8 @@
     }
     
     <div>
-        @Html.ActionLink("Back to List", "Index")
+        <a href=@Url.Content("/home/index")>Back to List</a>
+
     </div>
 </body>
 </html>

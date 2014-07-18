@@ -56,7 +56,8 @@
             </div>
     
             <div class="editor-label">
-                @Html.LabelFor(model => model.Wartosc)
+                @*@Html.LabelFor(model => model.Wartosc)*@
+                Ocena
             </div>
             <div class="editor-field">
                 @Html.EditorFor(model => model.Wartosc)
@@ -70,7 +71,8 @@
     }
     
     <div>
-        @Html.ActionLink("Back to List", "Index")
+        <a href=@Url.Content("/home/index")>Back to List</a>
+
     </div>
 </body>
 </html>

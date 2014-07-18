@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AppDziennik.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -18,12 +19,19 @@ namespace Dziennik.Controllers
 
         public ActionResult Ocena_Uczen_Przedmiot()
         {
-            return View();
+            return View("Ocena_Uczen_Przedmiot");
         }
         [HttpPost]
-        public ActionResult Ocena_Uczen_Przedmiot(int id_u, int id_p, int wartosc)
+        public ActionResult Ocena_Uczen_Przedmiot(Ocena O)
         {
-            return View();
+            var db_o = new OcenaDataContext();
+            if (ModelState.IsValid)
+            {
+                db_o.Oceny.Add(O);
+                db_o.SaveChanges();
+                return Redirect("/home/Index");
+            }
+            return View("Ocena_Uczen_Przedmiot", O);
         }
     }
 }

@@ -36,7 +36,7 @@ namespace AppDziennik.Controllers
             {
                 db_u.Uczniowie.Add(U);
                 db_u.SaveChanges();
-                return RedirectToAction("Index");
+                return Redirect("/home/Index");
             }
             return View("Create", U);
         }
@@ -61,7 +61,7 @@ namespace AppDziennik.Controllers
                 var db_u = new UczenDataContext();
                 db_u.Uczniowie.AddOrUpdate(U);
                 db_u.SaveChanges();
-                return RedirectToAction("Index");
+                return Redirect("/home/Index");
             }
             return View("Edit", U);
         }
@@ -88,7 +88,7 @@ namespace AppDziennik.Controllers
             {
                 db_u.Uczniowie.Remove(U);
                 db_u.SaveChanges();
-                return RedirectToAction("Index");
+                return Redirect("/home/Index");
             }
             return View("Delete", U);
         }

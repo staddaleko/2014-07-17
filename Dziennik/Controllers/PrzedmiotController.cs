@@ -37,7 +37,7 @@ namespace Dziennik.Controllers
             {
                 db_p.Przedmioty.Add(P);
                 db_p.SaveChanges();
-                return RedirectToAction("Index");
+                return Redirect("/home/Index");
             }
             return View("Create", P);
         }
@@ -56,7 +56,8 @@ namespace Dziennik.Controllers
                 var db_p = new PrzedmiotDataContext();
                 db_p.Przedmioty.AddOrUpdate(P);
                 db_p.SaveChanges();
-                return RedirectToAction("Index");
+                return Redirect("/home/Index");
+               // return RedirectToAction("Index"); //wszędzie to zostało zmienione, po to aby działał przycisk 'back' i wracał do głównej strony, a nie do 'index' swojego kontrolera
             }
             return View("Edit", P);
         }
@@ -77,7 +78,8 @@ namespace Dziennik.Controllers
             {
                 db_p.Przedmioty.Remove(P);
                 db_p.SaveChanges();
-                return RedirectToAction("Index");
+                return Redirect("/home/Index");
+                //return RedirectToAction("Index");
             }
             return View("Delete", P); 
         }
