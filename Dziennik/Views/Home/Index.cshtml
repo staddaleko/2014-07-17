@@ -13,18 +13,28 @@
 <body>
     <div>
         <div id="menu">
-            <span onmouseover="javascript: OnClickUczniowie()" class="" id="o1">Uczniowie</span> |
+            @*<span onmouseover="javascript: OnClickUczniowie()" class="" id="o1">Uczniowie</span> |
             <span onmouseover="javascript: OnClickPrzedmioty()" class="" id="o2">Przedmioty</span> | 
-            <span onmouseover="javascript: OnClickOceny()" class="" id="o3">Oceny</span>
+            <span onmouseover="javascript: OnClickOceny()" class="" id="o3">Oceny</span>*@
+            <span onmouseover="javascript: OnMouseOverUczniowie()" class="" id="o1">Uczniowie</span> |
+            <span onmouseover="javascript: OnMouseOverPrzedmioty()" class="" id="o2">Przedmioty</span> |
+            <span onmouseover="javascript: OnMouseOverOceny()" class="" id="o3">Oceny</span>
         </div>
         <div id="content">
             
         </div>
     </div>
     <script>
-    $(document).ready(function () {
-        $("#content").load('/Uczen/index');
-    });
+        $(document).ready(function () {
+
+            $("#content").load('/Uczen/Index');
+            $('#o1').css('background', 'orange');
+            $("#o1").css('color', 'red');
+            $("#o1").css('font-size', '1.5em');
+
+        });
+       
+   
     function OnClickUczniowie() {
         $('#content').load('/Uczen/Index');
     }
@@ -34,10 +44,52 @@
     function OnClickOceny() {
         $('#content').load('/home/ocena_uczen_przedmiot');
     }
-    function onmouseoverUczniowie()
+    function OnMouseOverUczniowie()
     {
-        $ ('#content').animate
+        $('#content').load('/Uczen/Index');
+        $('#o1').css('background', 'lightgreen');
+        $("#o1").css('font-size', '1.5em');
+        $("#o1").css('color', 'black');
+        $('#o2').css('background', 'white');
+        $("#o2").css('font-size', '1em');
+        $("#o2").css('color', 'black');
+        $("#o3").css('font-size', '1em');
+        $('#o3').css('background', 'white');
+        $("#o3").css('color', 'black');
+
     }
+    function OnMouseOverPrzedmioty()
+    {
+        $('#content').load('/Przedmiot/Index');
+        $('#o1').css('background', 'white');
+        $("#o1").css('font-size', '1em');
+        $("#o1").css('color', 'black');
+        $('#o2').css('background', 'lightgreen');
+        $("#o2").css('font-size', '1.5em');
+        $("#o2").css('color', 'black');
+        $('#o3').css('background', 'white');
+        $("#o3").css('font-size', '1em');
+        $("#o3").css('color', 'black');
+
+
+
+    }
+    function OnMouseOverOceny()
+    {
+        $('#content').load('/Home/Ocena_Uczen_Przedmiot/Index');
+        $('#o1').css('background', 'white');
+        $("#o1").css('font-size', '1em');
+        $("#o1").css('color', 'black');
+        $('#o2').css('background', 'white');
+        $("#o2").css('color', 'black');
+        $("#o2").css('font-size', '1em');
+        $("#o3").css('font-size', '1.5em');
+        $('#o3').css('background', 'lightgreen');
+        $("#o3").css('color', 'black');
+
+
+    }
+
     </script>
 
 </body>
