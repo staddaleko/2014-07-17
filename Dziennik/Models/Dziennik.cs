@@ -10,8 +10,34 @@ using System.ComponentModel.DataAnnotations;
 
 namespace AppDziennik.Models
 {
-  
-        public class Uczen
+    public class ExcludeChar : ValidationAttribute
+    {
+        private readonly string _chars;
+
+        public ExcludeChar(string chars):base("{0} contains invalid character!")
+        {
+            _chars = chars;
+        }
+
+        protected override ValidationResult IsValid(object value, ValidationContext validationContext)
+        {
+            if (value !=null)
+            {
+                for (int i = 0; i < _chars.Length; i++)
+                {
+                    var valueAsString = value.ToString();
+                    if (valueAsString.Contains(_chars[i]))
+                    {
+                        var errorMessage = FormatErrorMessage(validationContext.DisplayName);
+                        return new ValidationResult(errorMessage);
+                    }
+                }
+            }
+            return ValidationResult.Success;
+        }
+    }
+        
+    public class Uczen
         {
             [Key]
             [Required]
@@ -19,6 +45,7 @@ namespace AppDziennik.Models
             [MinLength(3, ErrorMessage = "Imię ma co najmniej 3 znaki")]
             [MaxLength(30, ErrorMessage = "Masz najdłuższe imię na świecie? Hehe. Skróć je. :D")]
             [Required(ErrorMessage = "Nie no... musisz mieć imię jakieś...")]
+            [ExcludeChar("~`!@#$%^&*()_+=_|{}][:'<>,.?/")]//not sure
             public string Imie { set; get; }
             [Required(ErrorMessage = "No podziel się nazwiskiem...")]
             [MinLength(3, ErrorMessage = "Nazwisko ma co najmniej 3 znaki")]
